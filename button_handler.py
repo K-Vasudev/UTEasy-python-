@@ -15,11 +15,14 @@ This class holds all the actions taken by button objects
 """
 class ButtonObject:
 
+    # Initialization of class, gets signalHandler object
     def __init__(self,signalHandler):
         self.signalTarget = signalHandler
 
+    # Controls for the 'toggle peaks' button
     def togglePeaks(self,event):
         print('Toggle')
-        
+    
+    # Controls for the 'smooth signal' button
     def toggleSmoothing(self,event):
         print('Smooth') 
