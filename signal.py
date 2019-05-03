@@ -8,7 +8,7 @@ Created on Tuesday, Apr 22, 2019
 """
 
 # Import modules
-import FcnLibrary as fcnlib
+import fcnLibrary as fcnlib
 import numpy as np
 from scipy.signal import filtfilt, hamming
 
