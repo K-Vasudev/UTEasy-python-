@@ -1,4 +1,4 @@
-# UT_SignalAnalysis
+# UTEasy
 Used for viewing and analyzing ultrasonic signals from '.txt' files of the specified format.
 This is a remake of the same analysis tools that were made in Matlab.
 
