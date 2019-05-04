@@ -8,15 +8,17 @@ Created on Tuesday, Apr 22, 2019
 """
 
 # Import modules
-import fcnLibrary as fcnlib
+import lib.fcnLibrary as fcnlib
 import numpy as np
 from scipy.signal import filtfilt, hamming
 
 class UltrasonicSignal:
 
     UT_FILE = 'UltrasonicSignal.txt'
+    FILTER_SIZE = 31
 
     def __init__(self):
+        """ Test that file can be opened """
         try:
             f = open(self.UT_FILE,'r')
             f.close()
@@ -29,16 +31,28 @@ class UltrasonicSignal:
         self.smoothSignal()
 
     def makeParameters(self):
+        """
+        # Gets the first 7 lines from the file
+        # and acquires the axis length and domain information
+        """
         axisLenStr = fcnlib.stripNewline(self.metadata[1])
         self.axisLength = self.makeFloat(axisLenStr)
         self.domainData = fcnlib.stripNewline(self.metadata[3])
         self.getDomainLimits()
         
     def getDomainLimits(self):
+        """
+        # Find the 'duration' of a signal class object
+        # Uses the metadata from the signal.txt file
+        """
         Start,End,Units = self.domainData.split()
-        self.step = fcnlib.getTimeStep(Start,End,self.axisLength)        
+        self.step = fcnlib.getTimeStep(Start,End,self.axisLength)
+        self.duration = float(End)-float(Start)     
                     
     def convertSignal(self):
+        """
+        # Convert signal values from string to float
+        """
         for counter in range(0,len(self.signal)):
             self.signal[counter] = self.makeFloat(self.signal[counter])
             
@@ -46,14 +60,18 @@ class UltrasonicSignal:
         return float(arg)
 
     def getTimeVector(self):
+        """
+        # Create a time vector to go with the signal
+        # Uses the fcnLibrary function 'createTime'
+        """
         self.timeVector = fcnlib.createTime(self.step,self.axisLength)
         
-    """ 
-    This function uses a low-pass Hamming filter, applied to the ultrasonic signal.
-    A ~100MHz bandpass (length 31) filter is used, sait seems to provide best results.
-    A forward-backward smoothing algorithm is applied, via 'filtfilt'.
-    """
     def smoothSignal(self):
+        """ 
+        # This function uses a low-pass Hamming filter, applied to the ultrasonic signal.
+        # A ~100MHz bandpass (length 31) filter is used, sait seems to provide best results.
+        # A forward-backward smoothing algorithm is applied, via 'filtfilt'.
+        """
         window = hamming(31)    
         denom = sum(window) 
         self.signalSmooth = filtfilt(window,denom,self.signal)
@@ -84,3 +102,20 @@ class UltrasonicSignal:
             for f in file:
                 self.signal[counter] = f
                 counter += 1
+                
+"""
+In this module:
+Classes:
+    Signal:
+        Methods:
+
+        Properties:
+            signal 
+            signalSmooth
+            metadata
+            timeVector
+            axisLength
+            step
+            duration
+            domainData
+"""                 
