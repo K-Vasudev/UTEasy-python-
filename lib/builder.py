@@ -15,7 +15,7 @@ from matplotlib.widgets import Button
 
 def Builder():
     # Create figure
-    fig = plt.figure("UTEasy")
+    fig = plt.figure("UTEasy",figsize=(8,6))
 
     """
     Create axis object holding signal
