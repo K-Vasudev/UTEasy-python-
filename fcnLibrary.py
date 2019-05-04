@@ -18,16 +18,31 @@ def stripNewline(str):
     return newStr                                       
     
 def createTime(timeStep,axisLength):
+    """
     # Function to create a time vector (used as x-data)
     # Uses the 'axisLength' parameter from the UT data file
+    """
     timeVector = np.empty(int(axisLength),dtype=float)
     for counter in range(0,int(axisLength)-1):
         timeVector[counter] = timeStep*(counter)
     return timeVector
+
+def createFrequencies(samplingRate,points):
+    """
+    # Function to create a frequency vector for the FT
+    # Is made to handle even- and odd- number of points
+    """
+    arrayLength = int(np.floor(points/2))
+    freqArray = np.empty(arrayLength)
+    for counter in range(0,arrayLength):
+        freqArray[counter] = counter*samplingRate/points
+    return freqArray
     
 def getTimeIndex(x_value,vector):
-    # Get the vector index for a given time. 'vector' must be montonic
-    # 'x_value' must appear in 'vector'
+    """
+    # Get the vector index for a given time. 
+    # 'vector' must be montonic
+    """
     idx = np.where(np.around(vector,decimals=3)==round(x_value,3))
     return idx[0]
     
@@ -82,3 +97,26 @@ def mapPeaks(signal,idx):
     for counter in range(0,len(idx)):
         pks[counter] = signal[int(idx[counter])]
     return pks
+
+def calculateFT(signal,point):
+    """
+    # Calculate the 'point' numbered Fourier Transform
+    # Uses numpy's 'fft' function from 'fft' module
+    # 'P2' is the Two Sided Power Spectrum
+    """
+    transform = np.fft.fft(signal,point)
+    P2 = np.absolute(transform)
+    powerSpectrum = np.empty(int(np.floor(point/2)))
+    powerSpectrum[0] = P2[0]
+    for counter in range(1,int(np.floor(point/2))):
+        powerSpectrum[counter] = P2[counter]*2
+    return powerSpectrum
+    
+def calculateSamplingRate(signalObj):
+    """
+    # Calculate the sampling rate of an ultraosnic sgnal
+    # Has to be from a 'signal' class object
+    """
+    duration = signalObj.duration
+    axisLength = signalObj.axisLength
+    return axisLength/duration
