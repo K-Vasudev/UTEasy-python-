@@ -43,8 +43,11 @@ def getTimeIndex(x_value,vector):
     # Get the vector index for a given time. 
     # 'vector' must be montonic
     """
-    idx = np.where(np.around(vector,decimals=3)==round(x_value,3))
-    return idx[0]
+    reducedVector = vector-round(x_value,3)
+    absVector = np.absolute(reducedVector)
+    minValue = np.amin(absVector)
+    idx = np.where(absVector==minValue)
+    return int(idx[0])
     
 def getTimeStep(start,end,axisLength): 
     """
