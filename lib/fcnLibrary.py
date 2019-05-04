@@ -23,7 +23,7 @@ def createTime(timeStep,axisLength):
     # Uses the 'axisLength' parameter from the UT data file
     """
     timeVector = np.empty(int(axisLength),dtype=float)
-    for counter in range(0,int(axisLength)-1):
+    for counter in range(0,int(axisLength)):
         timeVector[counter] = timeStep*(counter)
     return timeVector
 
