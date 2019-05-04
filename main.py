@@ -4,11 +4,11 @@
 Created on Tuesday, Mar 26, 2019
 @author: kvasudev
 @email: kvasudev@ualberta.ca
-@status: illustrative
+@status: full function with limitations
 """
 
 # Import modules
-import builder as bldr
+import lib.builder as bldr
 
 def main():
     
