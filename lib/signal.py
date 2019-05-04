@@ -24,7 +24,7 @@ class UltrasonicSignal:
             f.close()
         except:
             print('ERROR: COULD NOT OPEN FILE - SEE Vector.py')
-                    self.readSignal()
+        self.readSignal()
         self.stripSignal()
         self.convertSignal()
         self.getTimeVector()
