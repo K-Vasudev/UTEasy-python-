@@ -24,6 +24,11 @@ class UltrasonicSignal:
             f.close()
         except:
             print('ERROR: COULD NOT OPEN FILE - SEE Vector.py')
+            
+    def acquireSignal(self):
+        """
+        # Main area where the data acquisition is carried out
+        """
         self.readSignal()
         self.stripSignal()
         self.convertSignal()
