@@ -24,6 +24,7 @@ class SignalHandler:
         # Automatically plots signal and peak lines
         """
         self.signalObj = UltrasonicSignal()
+        self.signalObj.acquireSignal()
         self.smoothBool = True
         self.axis = ax
         self.signal = self.signalObj.signal
