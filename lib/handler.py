@@ -23,10 +23,18 @@ class SignalHandler:
         # Attaches to signal axis object ('axis')
         # Automatically plots signal and peak lines
         """
-        self.signalObj = UltrasonicSignal()
-        self.signalObj.acquireSignal()
         self.smoothBool = True
         self.axis = ax
+        self.populateSignalHandler()
+        
+    def populateSignalHandler(self):
+        """
+        # This function adds the ultrasonic signal object from signal.py
+        # Additionally, determines the time vector, smooth signal,
+        # and sets plot values related to the ultrasonic signal
+        """
+        self.signalObj = UltrasonicSignal()
+        self.signalObj.acquireSignal()
         self.signal = self.signalObj.signal
         self.smoothSignal = self.signalObj.signalSmooth
         self.timeVector = self.signalObj.timeVector
