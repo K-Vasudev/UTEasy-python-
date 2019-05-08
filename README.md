@@ -4,6 +4,10 @@ This is a remake of a similar analysis tool that was made in Matlab.
 Specifically this is for ultrasonic signals from the Acquisition Logic ALGTe1.0x 1GHz digitizer.
 Files need to be in the for seen in the Ultrasonic Signal file to work properly.
 
+### REQUIREMENTS
+python packages:
+scipy,matplotlib.pyplot,numpy
+
 ## Set Signal Smoothing
 You can choose to view the ultrasonic signal as-is, or smoothed.
 Smoothing is implemented with a zero-phase, backwards-forwards filter.
