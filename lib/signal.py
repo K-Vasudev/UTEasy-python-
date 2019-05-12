@@ -5,6 +5,9 @@ Created on Tuesday, Apr 22, 2019
 @author: kvasudev
 @email: kvasudev@ualberta.ca
 @status: illustrative
+
+The module is used to read th ultrasonic signal from the .txt file.
+Ultrasonic signals are made by the AcquisitionLogic AL8xGTe signal digitizer.
 """
 
 # Import modules
@@ -113,7 +116,16 @@ In this module:
 Classes:
     Signal:
         Methods:
-
+            __init__
+            acquireSignal
+            makeParameters
+            getDomainLimits
+            convertSignal
+            makeFloat
+            getTimeVector
+            smoothSignal
+            stripSignal
+            readSignal
         Properties:
             signal 
             signalSmooth
