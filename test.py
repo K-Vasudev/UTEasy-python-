@@ -5,6 +5,9 @@ Created on Tuesday, Apr 26, 2019
 @author: kvasudev
 @email: kvasudev@ualberta.ca
 @status: full function
+
+Unit Tests for some of the functions in the UTEasy library.
+Uses the Arrange, Act, Assert setup.
 """
 
 # Import modules
