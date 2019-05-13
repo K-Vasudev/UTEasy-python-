@@ -28,9 +28,9 @@ def Builder():
     
     """
     Create handler objects
-    1)Signal Handler
-    2)Peak Handler
-    3)FT Handler
+    1)Signal Handler - Reads ultrasonic signal and manipulates it
+    2)Peak Handler - Takes ultrasonic data to and calculates peak locations
+    3)FT Handler - Calculates Fourier transform and handlers plotting
     """
     signalHandler = SignalHandler(axSignal)
     peakHandler = PeakHandler(axSignal,signalHandler)
