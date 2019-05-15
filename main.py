@@ -15,5 +15,6 @@ def main():
     # Call the builder
     bldr.Builder()                
 
-if __name__ == '__main__':                              # Program entry point            
+# Program entry point, only runs if main has been called directly
+if __name__ == '__main__':           
     main()
