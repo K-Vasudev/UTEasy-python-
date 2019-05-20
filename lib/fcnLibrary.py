@@ -4,7 +4,7 @@
 Created on Tuesday, Mar 26, 2019
 @author: kvasudev
 @email: kvasudev@ualberta.ca
-@status: illustrative
+@status: full function
 """
 
 import  matplotlib.pyplot as plt
