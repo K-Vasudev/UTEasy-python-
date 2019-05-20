@@ -4,7 +4,7 @@
 Created on Tuesday, Apr 22, 2019
 @author: kvasudev
 @email: kvasudev@ualberta.ca
-@status: illustrative
+@status: full function
 
 The module is used to read th ultrasonic signal from the .txt file.
 Ultrasonic signals are made by the AcquisitionLogic AL8xGTe signal digitizer.
@@ -65,6 +65,9 @@ class UltrasonicSignal:
             self.signal[counter] = self.makeFloat(self.signal[counter])
             
     def makeFloat(self,arg):
+        """
+        # Cast a value from an integer or string to a float
+        """
         return float(arg)
 
     def getTimeVector(self):
