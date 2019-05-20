@@ -17,6 +17,12 @@ from scipy.signal import filtfilt, hamming
 
 class UltrasonicSignal:
 
+    """
+    # Constants are defined here
+    # UT_FILE: determines where the signal is read from,
+    #       needs to be changed to allow diverse signal analysis
+    # FILTER_SIZE: The length of the smoothing filter
+    """
     UT_FILE = 'UltrasonicSignal.txt'
     FILTER_SIZE = 31
 
