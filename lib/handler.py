@@ -276,6 +276,7 @@ class FTHandler:
     
 """
 In this module:
+(Still requires some additions)
 
 Classes:
     SignalHandler
