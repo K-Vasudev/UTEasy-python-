@@ -106,3 +106,9 @@ class ButtonObject:
         self.filterButton = button   
     def setPaddingButton(self,button):
         self.paddingButton = button
+
+        
+"""
+Methods:
+Parameters:
+"""
